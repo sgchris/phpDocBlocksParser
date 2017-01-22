@@ -1,5 +1,20 @@
 <?php
-/**
+
+/** ******************************************************
+ * handle the output
+ */
+ob_start();
+register_shutdown_function(function() {
+	$output = ob_get_clean();
+	if (empty($output)) {
+		echo "passed\n";
+	} else {
+		echo $output, "\n";
+	}
+});
+
+
+/** ******************************************************
  * Basic assertion functions
  */
 
